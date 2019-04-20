@@ -413,8 +413,11 @@ app.get('*', function(req, res){
     res.send('Sorry route not found', 404);
 });
 
-app.listen(3333, () => console.log('Listening on port 3333'));
-// app.listen(3333, () => console.log('Listening on port 3333'));
+
+const hostname = '213.226.126.245';
+const port = 3000;
+
+ app.listen([port, hostname], () => console.log('Listening on port 3333'));
 // app.listen(3333, () => console.log('Listening on port 3333'));
 // app.listen(3333, () => console.log('Listening on port 3333'));
 // app.listen(3333, () => console.log('Listening on port 3333'));
