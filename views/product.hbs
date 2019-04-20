@@ -1,0 +1,41 @@
+
+<div class="container">
+    <h1 style="text-align: center; padding-bottom: 40px; padding-top: 40px;">Редактировать {{product.name}}</h1>
+    <div class="row">
+        <div class="col-xl-12">
+            <form action="/updateProduct/{{product.id}}" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Название товара</label>
+                    <input type="text" name="title" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{product.name}}">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Категория товара</label>
+                    <select class="form-control" id="exampleFormControlSelect1" name="category">
+                        {{#each category}}
+                            <option value="{{name}}" >{{name}}</option>
+                        {{/each}}
+                    </select>
+                    <script>
+                        $(function () {
+                            $('#exampleFormControlSelect1').val('{{product.category}}');
+                        });
+                    </script>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Цена товара</label>
+                    <input type="text" name="price" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Цена товара" value="{{product.price}}" >
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">
+                        <img height="70" src="/uploads/{{product.image}}" alt="">
+                        Изменить фото</label>
+                    <input type="file" name="productImage" size="50" />
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <button type="submit" class="btn btn-primary">Изменить</button>
+            </form>
+        </div>
+    </div>
+</div>

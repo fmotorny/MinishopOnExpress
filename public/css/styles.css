@@ -1,0 +1,39 @@
+body {
+
+}
+
+.cat {
+    padding-bottom: 50px;
+}
+
+.cat .item {
+    text-align: center;
+}
+.shopCart h1 {
+    padding: 40px 0;
+    text-align: center;
+}
+.shopCart ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.shopCart ul li.top {
+    border-bottom: 1px solid #cccccc;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+.shopCart ul li {
+    display: inline-block;
+    width: 100%;
+}
+.shopCart ul li div {
+    width: 20%;
+    float: left;
+}
+.totalPrice {
+    border-top: 1px solid #cccccc;
+    padding-top: 20px;
+    text-align: right;
+    margin-top: 20px;
+}

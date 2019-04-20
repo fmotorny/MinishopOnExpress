@@ -1,0 +1,81 @@
+{{test2}}
+
+<div class="container">
+    <div class="row">
+        <div class="col-xl-12">
+            <p style="text-align: right; margin-top: 10px;">
+                <a href="/shopCart">Корзина <span>({{totalItems}})</span></a>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="container cat">
+    <div class="row">
+        <div class="col-xl-12">
+            <h1 style="text-align: center; padding-bottom: 40px; padding-top: 40px;">Product List</h1>
+            <div class="row">
+            {{#each product}}
+                <div class="col-xl-4 item">
+                    <div><h3>{{name}}</h3></div>
+                    <div>
+                        <img style="height: 200px" src="/uploads/{{image}}" alt="">
+                    </div>
+                    <strong style="color: red; display: block; padding-top: 20px; padding-bottom: 10px;">{{price}} руб.</strong>
+                    <strong style="display: block; ">{{category}}</strong>
+                    <div style="padding-bottom: 20px;">
+                        <a href="/edit/{{id}}">Редактировать</a>
+                    </div>
+                    <form action="/deleteProduct/{{id}}" method="post">
+                        <button type="submit" class="btn btn-primary">Удалить</button>
+                    </form>
+                    <a class="btn" href="/addToCart/{{id}}">Добавить в корзину</a>
+                </div>
+                {{else}}
+                <h3>Список товаров пуст</h3>
+            {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container form">
+    <div class="row">
+        <div class="col-xl-12">
+            <form action="/addProduct" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Название товара</label>
+                    <input type="text" name="title" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Название товара" required>
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Категория товара</label>
+                    <select class="form-control" id="exampleFormControlSelect1" name="category">
+                        {{#each category}}
+                            <option value="{{name}}">{{name}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Цена товара</label>
+                    <input type="text" name="price" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Цена товара" required>
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Фото товара</label>
+                    <input type="file" name="productImage" size="50" required />
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <button type="submit" class="btn btn-primary">Добавить продукт</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!--<div>-->
+    <!--{{#each itemProduct}}-->
+        <!--<p>{{id}}</p>-->
+        <!--<h1>{{qty}}</h1>-->
+    <!--{{/each}}-->
+<!--</div>-->
